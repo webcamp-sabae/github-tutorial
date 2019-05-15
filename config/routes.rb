@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # devise_for :users
+
+  # :index, :create, :new, :edit, :show, :update, :destroy
+
+  root 'cds#index'
+
+  get '/thanks', to: 'thanks#thanks'
+
+  # create
+  resources :carts, only: [:index, :update, :destroy]
+
+  resources :cds, only: [:index, :show]
+
+  # createa34
+  resources :othersaddresses, only: [:update, :new]
+
+  # create
+  resources :purchases, only: [:index]
+  resources :receipts, only: [:new, :create]
+  resources :users, only: [:show, :update, :destroy, :edit]
+  
 end
