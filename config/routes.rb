@@ -1,23 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
-
-  # :index, :create, :new, :edit, :show, :update, :destroy
-
-  root 'cds#index'
-
+  root "cds#index"
   get '/thanks', to: 'thanks#thanks'
 
-  # create
-  resources :carts, only: [:index, :update, :destroy]
-
-  resources :cds, only: [:index, :show]
-
-  # create
-  resources :othersaddresses, only: [:update, :new]
-
-  # create
-  resources :purchases, only: [:index]
-  resources :receipts, only: [:new, :create]
-  resources :users, only: [:show, :update, :destroy, :edit]
+  devise_for :users
   
+  resources :cds, only: [:index, :show]
+  resources :users, only: [:show, :edit, :update, :destroy]
+  resources :carts, only: [:index, :create, :update, :destroy]
+  resources :recipts, only: [:new, :create]
+  resources :othersaddresses, only: [:new, :create, :update]
+  resources :purchases, only: [:index]
 end
