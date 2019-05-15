@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # devise_for :users
+  devise_for :users
 
   # :index, :create, :new, :edit, :show, :update, :destroy
 
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :cds, only: [:index, :show]
 
-  # createa34
+  # create
   resources :othersaddresses, only: [:update, :new]
 
   # create
